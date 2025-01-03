@@ -41,3 +41,15 @@ Node * uniqueSortedList(Node * head) {
     
     return head; 
 }
+// Here's a code to split a circular linked list into two halves
+void splitCircularList(Node *head)
+{
+    Node* slow = head;
+    Node* fast = head->next;
+    while(fast->next!=head){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    fast->next = slow->next;
+    slow->next = head;
+}
